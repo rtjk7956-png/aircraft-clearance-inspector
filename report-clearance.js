@@ -14,14 +14,20 @@
   const overview=document.getElementById('report-inspection-overview');
   const overviewFigure=document.getElementById('report-inspection-overview-figure');
   const missingOverview=document.getElementById('report-overview-missing');
+  let vbaMeasurement = false;
   function displayImage(item) {
+    vbaMeasurement = item?.measurement_source === 'CATIA VBA CSV';
+    const legend = document.getElementById('report-overview-legend');
+    if (legend) legend.textContent = vbaMeasurement ? '파랑: 부품 A · 주황: 부품 B · 회색: 주변 부품 · 전체 배치: STP' : '파랑: 부품 A · 주황: 부품 B · 회색: 주변 부품 · 분홍: 최근접 위치';
+    const sourceNote = document.getElementById('report-measurement-source-note');
+    if (sourceNote) sourceNote.textContent = vbaMeasurement ? '편차 = 실측치 − 최소 기준치 · 실측값: CATIA VBA CSV · 전체 배치: STP' : '편차 = 실측치 − 최소 기준치 · STEP 표면 메시 근사';
     const hasOverview=typeof item?.overviewImage==='string' && item.overviewImage.length<=700000 && /^data:image\/jpeg;base64,[A-Za-z0-9+/=]+$/.test(item.overviewImage);
     if(overviewFigure)overviewFigure.hidden=!hasOverview;
     if(missingOverview)missingOverview.hidden=!item || hasOverview;
     if(overview){if(hasOverview){overview.src=item.overviewImage;overview.alt=`${item.row}번 검사 전체 배치: ${item.item_a} ↔ ${item.item_b}`;}else overview.removeAttribute('src');}
     if(imageCaption)imageCaption.textContent=item?`${item.row}번 · ${item.item_a} ↔ ${item.item_b}`:'FAIL 검사 항목의 전체 배치 이미지가 표시됩니다.';
   }
-  const mm=value=>Number(value).toLocaleString('ko-KR',{minimumFractionDigits:2,maximumFractionDigits:2})+' mm';
+  const mm=value=>Number(value).toLocaleString('ko-KR',{minimumFractionDigits:vbaMeasurement?3:2,maximumFractionDigits:vbaMeasurement?3:2})+' mm';
   function displayTable(item) {
     const values=item?{
       item:`${item.row}번 · 부품 사이 최소 이격`,
@@ -68,9 +74,9 @@
     const item=failures[Number(select.value)];if (!item) return;
     try{localStorage.setItem(selectionKey,inspectionKey(withFile(item)));}catch{}
     displayImage(item);displayTable(item);
-    measured.value=Number(item.measured_mm).toFixed(2);
+    measured.value=Number(item.measured_mm).toFixed(vbaMeasurement?3:2);
     standard.textContent='≥ '+mm(item.minimum_mm);
-    if(deviationValue){deviationValue.textContent=Number(item.measured_mm-item.minimum_mm).toLocaleString('ko-KR',{minimumFractionDigits:2,maximumFractionDigits:2});deviationValue.className='font-headline-xl text-headline-xl text-error font-mono';}
+    if(deviationValue){deviationValue.textContent=Number(item.measured_mm-item.minimum_mm).toLocaleString('ko-KR',{minimumFractionDigits:vbaMeasurement?3:2,maximumFractionDigits:vbaMeasurement?3:2});deviationValue.className='font-headline-xl text-headline-xl text-error font-mono';}
     if(shortage)shortage.textContent=mm(item.minimum_mm-item.measured_mm);
     if(deviationVerdict){deviationVerdict.textContent='FAIL';deviationVerdict.className='px-1 py-0.5 rounded bg-error/20 text-error font-label-sm text-label-sm';}
     if(deviationNote)deviationNote.textContent=`${item.row}번 검사 · 최소 이격 기준 미달`;

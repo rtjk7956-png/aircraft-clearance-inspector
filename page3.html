@@ -411,7 +411,7 @@
 <img id="report-inspection-overview" class="w-full h-auto object-contain rounded" alt="전체 부품 배치와 검사 부품 강조"/>
 </figure>
 <p id="report-inspection-image-caption" class="text-on-surface-variant text-xs break-words"></p>
-<span class="text-outline text-[10px]">파랑: 부품 A · 주황: 부품 B · 회색: 주변 부품 · 분홍: 최근접 위치</span>
+<span id="report-overview-legend" class="text-outline text-[10px]">파랑: 부품 A · 주황: 부품 B · 회색: 주변 부품 · 분홍: 최근접 위치</span>
 </div>
 <!-- Actual inspection result table; report narrative remains unchanged -->
 <div id="report-inspection-table-card" class="self-start min-h-0 md:col-span-6 bg-surface-container rounded p-space-sm flex flex-col gap-space-xs">
@@ -427,7 +427,7 @@
 <tr class="border-b border-outline-variant/20"><th scope="row" class="py-1 px-2 text-outline font-normal whitespace-nowrap align-top">부족 거리</th><td id="report-result-shortage" class="py-1 px-2 break-words text-error font-semibold">—</td></tr>
 <tr class="border-b border-outline-variant/20"><th scope="row" class="py-1 px-2 text-outline font-normal whitespace-nowrap align-top">판정</th><td id="report-result-verdict" class="py-1 px-2 break-words text-error font-semibold">—</td></tr>
 <tr class="border-b border-outline-variant/20"><th scope="row" class="py-1 px-2 text-outline font-normal whitespace-nowrap align-top">규격 근거</th><td id="report-result-source" class="py-1 px-2 break-words">—</td></tr></tbody></table></div>
-<p class="text-outline text-[10px] leading-4">편차 = 실측치 − 최소 기준치 · STEP 표면 메시 근사</p>
+<p id="report-measurement-source-note" class="text-outline text-[10px] leading-4">편차 = 실측치 − 최소 기준치 · STEP 표면 메시 근사</p>
 </div>
 </div>
 <!-- Quality Assurance Sign-off Section -->

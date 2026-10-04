@@ -751,6 +751,7 @@ function captureInspectionImage(result, row, overview=false) {
     const light = new THREE.DirectionalLight(0xffffff,1.7);
     light.position.copy(view.position);light.target.position.copy(center);
     isolated.add(light,light.target);
+    if (result.a && result.b) {
     const lineGeometry = new THREE.BufferGeometry().setFromPoints([result.a,result.b]);
     const lineMaterial = new THREE.LineBasicMaterial({color:0xc2255c,depthTest:false});
     const line = new THREE.Line(lineGeometry,lineMaterial);line.renderOrder=40;
@@ -760,6 +761,7 @@ function captureInspectionImage(result, row, overview=false) {
     owned.push(dotGeometry,dotMaterial);
     for(const point of [result.a,result.b]) {
       const dot=new THREE.Mesh(dotGeometry,dotMaterial);dot.position.copy(point);dot.renderOrder=41;isolated.add(dot);
+    }
     }
     shot.render(isolated,view);
     // Crop the rendered pair, including the nearest-point markers, before adding labels.
@@ -789,15 +791,17 @@ function captureInspectionImage(result, row, overview=false) {
     ctx.fillStyle='#eef1f5';ctx.fillRect(0,0,image.width,image.height);
     ctx.drawImage(raw,left,top,cropWidth,cropHeight,drawX,drawY,drawWidth,drawHeight);
     ctx.fillStyle='#172334';ctx.font='bold 20px sans-serif';
-    ctx.fillText(`${row}번 검사 · ${overview?'전체 배치':'선택 부품 확대'} · 최소 이격 ${result.distance.toFixed(2)} mm`,20,32);
+    ctx.fillText(`${row}번 검사 · ${overview?'전체 배치':'선택 부품 확대'} · ${result.external ? 'VBA CSV 실측' : '최소 이격'} ${result.distance.toFixed(result.external ? 3 : 2)} mm`,20,32);
+    if (result.a && result.b) {
     const a=result.a.clone().project(view),b=result.b.clone().project(view);
     ctx.strokeStyle='#c2255c';ctx.lineWidth=3;ctx.beginPath();
     ctx.moveTo(drawX+((a.x+1)*480-left)*scale,drawY+((1-a.y)*270-top)*scale);
     ctx.lineTo(drawX+((b.x+1)*480-left)*scale,drawY+((1-b.y)*270-top)*scale);ctx.stroke();
+    }
     ctx.fillStyle='#ffffff';ctx.fillRect(0,footerY,960,100);ctx.font='17px sans-serif';
     const fitLabel=(value)=>{let label=value;while(ctx.measureText(label).width>920&&label.length)label=label.slice(0,-1);return label===value?value:label.slice(0,-1)+'…';};
     result.ids.forEach((id,i)=>{ctx.fillStyle=i===0?'#1976d2':'#bc5e0b';ctx.fillText(fitLabel(`부품 ${i===0?'A':'B'}: ${partDisplayName(M.parts[id])}`),20,footerY+28+i*28);});
-    ctx.fillStyle='#526173';ctx.font='14px sans-serif';ctx.fillText(overview?'회색 반투명: 주변 부품 / 분홍색 선·점: 최근접 위치':'선택한 두 부품만 확대 / 분홍색 선·점: 최근접 위치',20,footerY+87);
+    ctx.fillStyle='#526173';ctx.font='14px sans-serif';ctx.fillText(result.external ? '전체 배치: STP 모델 / 실측값: CATIA VBA CSV / 파랑·주황: 검사 부품' : overview?'회색 반투명: 주변 부품 / 분홍색 선·점: 최근접 위치':'선택한 두 부품만 확대 / 분홍색 선·점: 최근접 위치',20,footerY+87);
     const data=image.toDataURL('image/jpeg',0.82);
     if(data.length>700000)throw new Error('검사 이미지의 크기가 너무 큽니다.');
     return data;
@@ -2190,6 +2194,20 @@ window.addEventListener('drop', e => {
 // test hook: load a model from a URL in the console
 window.stepMeasure = {
   getParts: inspectionPartsSnapshot,
+  captureVbaOverview({partA,partB,distanceMm,row}) {
+    if (!M) throw new Error('STP 모델을 불러온 뒤 보고서로 이동하세요.');
+    if (!Number.isFinite(distanceMm) || distanceMm < 0 || !Number.isInteger(row) || row < 1 || row > 6)
+      throw new Error('VBA 검사값이 올바르지 않습니다.');
+    const findPart = name => {
+      const matches = M.parts.filter(p=>p.faceIds.length && [p.sourceId,p.label,partDisplayName(p)].includes(name));
+      if (matches.length !== 1) throw new Error('STP에서 CSV 부품을 유일하게 찾을 수 없습니다: ' + name);
+      return matches[0].id;
+    };
+    const ids = [findPart(partA),findPart(partB)];
+    if (ids[0] === ids[1]) throw new Error('서로 다른 두 부품을 선택하세요.');
+    return {overviewImage:captureInspectionImage({ids,distance:distanceMm,external:true},row,true),
+      modelKey:M.fileKey || M.name,modelName:M.name};
+  },
   async loadUrl(url) { const r = await fetch(url); if (!r.ok) throw new Error(r.status); await loadBuffer(url.split('/').pop().split('?')[0], await r.arrayBuffer()); },
   async loadFile(file) { return await loadBuffer(file.name,await file.arrayBuffer()); },
   setView(name) { if (['iso','top','front','right','fit'].includes(name)) fitView(name); },

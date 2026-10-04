@@ -211,6 +211,11 @@
 
 <div class="flex items-center justify-between"><span class="font-headline-md text-headline-md font-bold">클리어런스 검사 결과</span><span id="csv-inspection-verdict" class="text-outline">조회 중</span></div>
 <p class="text-on-surface-variant text-xs">1~6번 검사 행에서 검사할 부품 A와 B를 선택하세요. STEP 파일을 열면 원본 ID와 설정한 이름이 목록에 표시됩니다. STEP 측정기에서 최소 이격을 계산한 뒤 넣을 검사 행(1~6번)을 선택하고 ‘검사 행에 넣기’를 누르면 두 부품과 실측치가 해당 행에 반영됩니다. 선택한 계통 조합의 기준치를 Python 규격표에서 조회합니다. 실측치를 넣으면 편차와 PASS/FAIL을 표시합니다. 규격에 없는 조합은 판정을 보류합니다.</p>
+<div class="flex flex-wrap gap-2" aria-label="실측값 가져오기 방식">
+<button id="step-inspection-mode" type="button" aria-pressed="true" class="px-space-md py-2 rounded border border-outline-variant text-on-surface disabled:opacity-60 text-sm">STEP 측정 (기존)</button>
+<button id="vba-csv-load" type="button" aria-pressed="false" class="px-space-md py-2 rounded bg-primary-container text-on-primary-container disabled:opacity-60 text-sm font-bold">VBA CSV 결과</button>
+</div>
+<p id="vba-csv-status" role="status" aria-live="polite" class="text-on-surface-variant text-xs break-words">VBA CSV 결과를 누르면 Output 폴더를 다시 읽습니다. Selected = TRUE인 부품 조합만 계통별 드롭다운에 표시합니다. 기존 선택이 없으면 계통별 대표 TRUE 조합을 넣습니다. CATIA 매크로 실행 후 다시 눌러 새 결과를 가져오세요.</p>
 <p id="csv-inspection-status" class="text-primary text-xs break-words" role="status" aria-live="polite"></p>
 <div class="rounded bg-surface-container-low overflow-hidden">
 <div class="grid grid-cols-12 bg-surface-container-high px-space-md py-2 text-xs text-outline"><span class="col-span-4">검사 부품 / 규격 근거</span><span class="col-span-2 text-right">기준치</span><span class="col-span-2 text-right">실측치</span><span class="col-span-2 text-right">편차</span><span class="col-span-2 text-center">판정</span></div>
@@ -239,4 +244,4 @@
 <!-- Camera controls are connected to the embedded STEP measurer. -->
 </div></main><footer class="w-full bg-surface-container-lowest py-space-sm"><div class="w-full px-gutter-desktop flex items-center justify-between"><div class="flex items-center gap-space-lg font-label-sm text-label-sm text-on-surface-variant"><span class="">AEROPIPE PROTOCOL: MIL-STD-1522A / AS9102 Rev C</span><span class="">ENGINE: PYTHON CSV INSPECTION</span><span class="">MODE: LOCALHOST</span></div><div class="font-label-sm text-label-sm text-outline">AeroPipe Inspector AI © 2025 Defense Quality Assurance Division. Confidential.</div></div></footer>
 
-<script src="page2-step.js"></script><script src="page2-cad.js"></script><script src="inspection-results.js?v=persist-rows-v1"></script></body></html>
+<script src="page2-step.js"></script><script src="page2-cad.js"></script><script src="inspection-results.js?v=vba-true-pairs-v2"></script></body></html>
