@@ -5,6 +5,7 @@ from starlette.middleware.trustedhost import TrustedHostMiddleware
 from .inspection import inspect_rows
 from .specification_bridge import lookup, list_options
 from .ai_causes import FailureInput, AnalysisUnavailable, analyze
+from .vba_csv import load_measurements
 
 from .mail_routing import MailInput, DirectoryInput, directory, save_directory, route_mail
 
@@ -86,6 +87,16 @@ def ai_mail_routing(item: MailInput):
     except ValueError as error:raise HTTPException(422,detail=str(error)) from error
     except AnalysisUnavailable as error:raise HTTPException(503,detail=str(error)) from error
     except OSError as error:raise HTTPException(503,detail='담당자 또는 AI 설정 파일을 읽을 수 없습니다.') from error
+
+@app.get('/api/vba/measurements')
+def vba_measurements():
+    try:
+        return load_measurements()
+    except (ValueError, UnicodeError) as error:
+        raise HTTPException(422, detail=str(error)) from error
+    except OSError as error:
+        raise HTTPException(503, detail='VBA CSV 저장 폴더를 읽을 수 없습니다. 폴더 경로와 OneDrive 파일 다운로드 상태를 확인하세요.') from error
+
 
 # The original home layout keeps HTML/JS at the root. Publish only frontend files.
 @app.get('/{filename:path}', include_in_schema=False)
