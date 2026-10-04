@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="ko"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "on-secondary-container": "#00311f",
+          "tertiary-fixed-dim": "#ffb95f",
+          "primary-fixed-dim": "#89ceff",
+          "secondary-container": "#00a572",
+          "surface-dim": "#0b1326",
+          "primary": "#89ceff",
+          "tertiary": "#ffb95f",
+          "primary-container": "#0ea5e9",
+          "on-primary-container": "#003751",
+          "on-tertiary-fixed": "#2a1700",
+          "inverse-on-surface": "#283044",
+          "inverse-primary": "#006591",
+          "surface-container-lowest": "#060e20",
+          "primary-fixed": "#c9e6ff",
+          "surface-container-high": "#222a3d",
+          "surface-container-low": "#131b2e",
+          "on-secondary-fixed": "#002113",
+          "on-primary-fixed-variant": "#004c6e",
+          "on-secondary-fixed-variant": "#005236",
+          "on-background": "#dae2fd",
+          "background": "#0b1326",
+          "outline-variant": "#3e4850",
+          "surface-container": "#171f33",
+          "secondary-fixed-dim": "#4edea3",
+          "on-tertiary": "#472a00",
+          "on-surface-variant": "#bec8d2",
+          "surface-bright": "#31394d",
+          "on-primary-fixed": "#001e2f",
+          "secondary-fixed": "#6ffbbe",
+          "tertiary-container": "#d88a00",
+          "outline": "#88929b",
+          "on-surface": "#dae2fd",
+          "on-secondary": "#003824",
+          "error": "#ffb4ab",
+          "surface": "#0b1326",
+          "inverse-surface": "#dae2fd",
+          "surface-variant": "#2d3449",
+          "secondary": "#4edea3",
+          "tertiary-fixed": "#ffddb8",
+          "surface-container-highest": "#2d3449",
+          "on-error-container": "#ffdad6",
+          "on-error": "#690005",
+          "surface-tint": "#89ceff",
+          "on-tertiary-fixed-variant": "#653e00",
+          "error-container": "#93000a",
+          "on-tertiary-container": "#4a2c00",
+          "on-primary": "#00344d"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.125rem",
+          "lg": "0.25rem",
+          "xl": "0.5rem",
+          "full": "0.75rem"
+        },
+        "spacing": {
+          "gutter-desktop": "1.5rem",
+          "space-xs": "0.25rem",
+          "margin-desktop": "2rem",
+          "margin": "1rem",
+          "space-xl": "2rem",
+          "space-md": "0.75rem",
+          "gutter": "1rem",
+          "space-lg": "1.25rem",
+          "space-sm": "0.5rem"
+        },
+        "fontFamily": {
+          "label-sm": [
+            "JetBrains Mono"
+          ],
+          "body-md": [
+            "Inter"
+          ],
+          "headline-md": [
+            "Inter"
+          ],
+          "headline-xl": [
+            "Inter"
+          ],
+          "label-md": [
+            "JetBrains Mono"
+          ],
+          "headline-xl-mobile": [
+            "Inter"
+          ],
+          "body-sm": [
+            "Inter"
+          ],
+          "label-lg": [
+            "JetBrains Mono"
+          ],
+          "body-lg": [
+            "Inter"
+          ],
+          "headline-lg": [
+            "Inter"
+          ]
+        },
+        "fontSize": {
+          "label-sm": [
+            "10px",
+            {
+              "lineHeight": "14px",
+              "letterSpacing": "0.06em",
+              "fontWeight": "600"
+            }
+          ],
+          "body-md": [
+            "14px",
+            {
+              "lineHeight": "20px",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-md": [
+            "20px",
+            {
+              "lineHeight": "28px",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-xl": [
+            "36px",
+            {
+              "lineHeight": "44px",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "700"
+            }
+          ],
+          "label-md": [
+            "12px",
+            {
+              "lineHeight": "16px",
+              "letterSpacing": "0.04em",
+              "fontWeight": "500"
+            }
+          ],
+          "headline-xl-mobile": [
+            "28px",
+            {
+              "lineHeight": "36px",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "700"
+            }
+          ],
+          "body-sm": [
+            "12px",
+            {
+              "lineHeight": "18px",
+              "fontWeight": "400"
+            }
+          ],
+          "label-lg": [
+            "14px",
+            {
+              "lineHeight": "20px",
+              "letterSpacing": "0.02em",
+              "fontWeight": "500"
+            }
+          ],
+          "body-lg": [
+            "16px",
+            {
+              "lineHeight": "24px",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-lg": [
+            "24px",
+            {
+              "lineHeight": "32px",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "600"
+            }
+          ]
+        }
+      },
+    },
+  }</script><style>#mail-action-buttons button{white-space:nowrap;flex-shrink:0;}</style></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/95 backdrop-blur-md"><div class="h-16 w-full px-gutter-desktop flex items-center justify-between"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><div class="w-9 h-9 bg-surface-container-high rounded flex items-center justify-center"><span class="material-symbols-outlined text-primary text-[20px]">radar</span></div><div class="flex flex-col"><div class="flex items-center gap-space-xs"><span class="font-label-lg text-label-lg tracking-wider text-on-surface uppercase">AeroPipe</span><span class="font-label-lg text-label-lg tracking-wider text-primary uppercase">AI</span><span class="px-1.5 py-0.5 rounded bg-surface-container-high text-primary font-label-sm text-label-sm">MIL-SPEC</span></div><div class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span><span class="font-label-sm text-label-sm text-on-surface-variant">CATIA v6 CONNECTED • VISION SYSTEM ONLINE</span></div></div></div><div class="h-8 w-px bg-outline-variant/40"></div><div class="flex items-center gap-space-xs bg-surface-container-low px-space-md py-1.5 rounded"><span class="material-symbols-outlined text-on-surface-variant text-[16px]">flight</span><div class="flex flex-col"><span class="font-label-sm text-label-sm text-outline uppercase">Active Target</span><select class="bg-transparent font-label-md text-label-md text-on-surface focus:outline-none cursor-pointer"><option class="bg-surface-container-high text-on-surface" selected="">KF-21 Boramae / Section B-42 Hyd. Lines</option><option class="bg-surface-container-high text-on-surface">Boeing 787-9 / Wing Fuel Feed Line #3</option><option class="bg-surface-container-high text-on-surface">Airbus A350-1000 / Titanium Bleed Air Duct</option></select></div></div></div><nav class="flex items-center gap-space-xs bg-surface-container-low p-1 rounded" data-active-classes="bg-primary-container text-on-primary-container font-headline-md rounded"><a class="px-space-md py-1.5 rounded text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" data-path="dashboard-and-drawing-management" href="index.html">검사 대시보드 &amp; 도면 관리</a><a class="px-space-md py-1.5 rounded text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" data-path="3d-inspection-and-tolerance-check" href="page2.html">3D 치수 측정 &amp; 규격 검사</a><a class="px-space-md py-1.5 rounded text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md" data-path="ai-risk-analysis-and-technical-report" href="page3.html">AI 위험도 분석 &amp; 보고서</a><a aria-current="page" class="px-space-md py-1.5 transition-colors bg-primary-container text-on-primary-container font-headline-md rounded" data-path="automated-mail-dispatcher" href="page4.html">알림 메일 작성 &amp; 발송 대기</a></nav><div class="flex items-center gap-space-md"><div class="flex items-center gap-1.5 px-space-sm py-1 rounded bg-error-container/30"><span class="w-2 h-2 rounded-full bg-error animate-pulse"></span><span class="font-label-sm text-label-sm text-error">2 이상 감지 (Defects)</span></div><div class="flex flex-col items-end"><span class="font-label-sm text-label-sm text-outline">BATCH REGISTER</span><span class="font-label-md text-label-md text-on-surface">#INS-202505-084</span></div><div class="h-8 w-px bg-outline-variant/40"></div><div class="flex items-center gap-1.5 text-secondary font-label-sm text-label-sm"><span class="material-symbols-outlined text-[15px]">cloud_done</span><span>Auto-Saved</span></div><div class="flex items-center gap-space-sm pl-space-xs"><div class="flex flex-col items-end"><span class="font-label-md text-label-md text-on-surface">김민석 수석연구원</span><span class="font-label-sm text-label-sm text-on-surface-variant">품질보증팀 (QA Div.)</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div><div class="px-2 py-1 rounded bg-surface-container text-on-surface font-label-sm text-label-sm">KR</div></div></div></header><main class="w-full pt-16 bg-surface"><div class="flex flex-col w-full">
+<!-- Top Notification Telemetry Banner -->
+<section class="w-full px-gutter-desktop py-space-sm bg-surface-container-lowest">
+<div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-space-sm">
+<div class="flex items-center gap-space-md">
+<div class="w-2.5 h-2.5 rounded-full bg-tertiary animate-pulse"></div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm text-tertiary uppercase tracking-widest">DISPATCH STATUS // CRITICAL COMM</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm">AUTO-ROUTER ACTIVE</span>
+</div>
+<h1 class="font-headline-md text-headline-md text-on-surface">
+            품질 규격 이상 자동 통보 시스템 - 발송 준비 완료
+            <span class="font-label-md text-label-md text-outline font-normal ml-space-xs">(1건 발송 대기, 2건 발송 완료)</span>
+</h1>
+</div>
+</div>
+<div class="flex items-center gap-space-md font-label-sm text-label-sm">
+<div class="flex items-center gap-space-xs px-space-md py-1.5 rounded bg-surface-container-low">
+<span class="material-symbols-outlined text-[16px] text-tertiary">hourglass_top</span>
+<span class="text-on-surface-variant">대기열 처리기:</span>
+<span class="text-tertiary font-bold">1 건 대기 (PENDING)</span>
+</div>
+<div class="flex items-center gap-space-xs px-space-md py-1.5 rounded bg-surface-container-low">
+<span class="material-symbols-outlined text-[16px] text-secondary">mark_email_read</span>
+<span class="text-on-surface-variant">일일 전송 실적:</span>
+<span class="text-secondary font-bold">24 / 24 도달 성공</span>
+</div>
+<div class="h-6 w-px bg-surface-variant"></div>
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-primary">security</span>
+<span>AIR-NET SECURE SMTP (PORT 587 TLS)</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 2-Column Split Workspace -->
+<div class="w-full px-gutter-desktop py-space-md grid grid-cols-1 xl:grid-cols-12 gap-space-md">
+<!-- LEFT PANEL: Dispatch Queue & Trigger Rule Deck (Col 1-5) -->
+<aside class="xl:col-span-4 flex flex-col gap-space-md">
+<!-- Queue Header Bar -->
+<div class="flex items-center justify-between px-space-md py-space-xs bg-surface-container-low rounded">
+<div class="flex items-center gap-space-xs font-label-md text-label-md">
+<span class="material-symbols-outlined text-primary text-[18px]">outgoing_mail</span>
+<span class="text-on-surface font-semibold uppercase tracking-wider">발송 대기열 (Mail Queue)</span>
+</div>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-high text-outline text-label-sm font-label-sm">총 3건 기록</span>
+</div>
+<!-- Queue Cards Stack -->
+<div class="flex flex-col gap-space-sm" id="queueList">
+<!-- Queue Item 1 (Selected / Pending / Critical NCR) -->
+<article class="p-space-md rounded bg-surface-container-high shadow-md transition-all cursor-pointer relative overflow-hidden" id="card-hyd-42a">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-tertiary"></div>
+<div class="flex items-center justify-between mb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="px-1.5 py-0.5 rounded bg-error-container/40 text-error font-label-sm text-label-sm uppercase">긴급 // NCR</span>
+<span class="px-1.5 py-0.5 rounded bg-tertiary-container/30 text-tertiary font-label-sm text-label-sm flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-ping"></span>
+                발송 대기 (Ready)
+              </span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">방금 생성 (09:42)</span>
+</div>
+<h2 class="font-body-md text-body-md font-semibold text-on-surface line-clamp-2 mb-space-xs">
+            [긴급/NCR] KF-21 유압 배관 #HYD-MAIN-PRESS-42A 규격 불합격 보고 및 재가공 요청
+          </h2>
+<div class="space-y-1 font-label-sm text-label-sm text-on-surface-variant">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[14px] text-outline">group</span>
+<span>수신: 기체유압계통팀, 가공공정기술팀</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[14px] text-outline">attach_file</span>
+<span class="text-primary truncate">NCR_2025_HYD_0419_Report.pdf (4.8MB) 외 2건</span>
+</div>
+</div>
+<div class="mt-space-sm pt-space-xs flex items-center justify-between text-outline font-label-sm text-label-sm bg-surface-container-lowest/60 px-space-xs py-1 rounded">
+<span>위험 지수: <strong class="text-error font-mono">RISK-LVL 4 (HIGH)</strong></span>
+<span class="text-tertiary">승인 대기 중</span>
+</div>
+</article>
+<!-- Queue Item 2 (Completed / Normal Notice) -->
+<article class="p-space-md rounded bg-surface-container-low opacity-80 hover:opacity-100 transition-all cursor-pointer relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary"></div>
+<div class="flex items-center justify-between mb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm uppercase">정상 통보</span>
+<span class="px-1.5 py-0.5 rounded bg-secondary-container/20 text-secondary font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">done_all</span>
+                발송 완료
+              </span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">2025-05-12 14:20</span>
+</div>
+<h3 class="font-body-md text-body-md font-medium text-on-surface line-clamp-1 mb-space-xs">
+            B787 연료 피드관 배치 #INS-081 전수 적합 완료 통보
+          </h3>
+<div class="space-y-1 font-label-sm text-label-sm text-on-surface-variant">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[14px] text-outline">forward_to_inbox</span>
+<span>수신: 보잉사업본부 조립품질팀</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[14px] text-outline">verified</span>
+<span class="text-secondary font-mono">PASS-CERT-202505-81.pdf</span>
+</div>
+</div>
+</article>
+<!-- Queue Item 3 (Completed / Warning Notice) -->
+<article class="p-space-md rounded bg-surface-container-low opacity-75 hover:opacity-100 transition-all cursor-pointer relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-outline"></div>
+<div class="flex items-center justify-between mb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm uppercase">경미 경고</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">archive</span>
+                발송 완료
+              </span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">2025-05-12 10:15</span>
+</div>
+<h3 class="font-body-md text-body-md font-medium text-on-surface line-clamp-1 mb-space-xs">
+            유압 드레인 라인 허용공차 근접 경고 (주의 관찰 권고)
+          </h3>
+<div class="space-y-1 font-label-sm text-label-sm text-on-surface-variant">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[14px] text-outline">forward_to_inbox</span>
+<span>수신: 라인보전파트 3팀</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[14px] text-outline">query_stats</span>
+<span class="text-outline font-mono">Margin Drift: -0.048mm</span>
+</div>
+</div>
+</article>
+</div>
+<!-- Notification Rule Settings Card -->
+<section class="p-space-md rounded bg-surface-container-low flex flex-col gap-space-sm mt-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">rule_settings</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">자동 발송 트리거 규칙 (Rule Engine)</span>
+</div>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-secondary font-label-sm text-label-sm">LIVE RUN</span>
+</div>
+<div class="space-y-space-xs pt-space-xs">
+<!-- Rule 1 -->
+<div class="p-space-xs rounded bg-surface-container flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-medium">High Risk (결함/초과) 즉시 초안 작성</span>
+<span class="font-label-sm text-label-sm text-outline">공차 초과율 &gt; 15% 감지 시 엔지니어 서명 대기</span>
+</div>
+<span class="material-symbols-outlined text-secondary text-[20px]">toggle_on</span>
+</div>
+<!-- Rule 2 -->
+<div class="p-space-xs rounded bg-surface-container flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-medium">결함 항목별 부서 자동 라우팅</span>
+<span class="font-label-sm text-label-sm text-outline">곡률 반경: 유압설계 / 벽두께 감육: 가공기술</span>
+</div>
+<span class="material-symbols-outlined text-secondary text-[20px]">toggle_on</span>
+</div>
+<!-- Rule 3 -->
+<div class="p-space-xs rounded bg-surface-container flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-medium">전수 합격 시 자동 배치 발송</span>
+<span class="font-label-sm text-label-sm text-outline">규격 100% 충족 품목은 대기 없이 일괄 승인</span>
+</div>
+<span class="material-symbols-outlined text-secondary text-[20px]">toggle_on</span>
+</div>
+</div>
+<div class="pt-space-xs flex items-center justify-between text-outline font-label-sm text-label-sm">
+<span>최종 룰 업데이트: 2025.05.10</span>
+<button class="text-primary hover:underline flex items-center gap-0.5">
+<span>조건 편집</span>
+<span class="material-symbols-outlined text-[14px]">tune</span>
+</button>
+</div>
+</section>
+<!-- Inspection Part Thumbnail / Telemetry Capsule -->
+<div class="p-space-md rounded bg-surface-container-low flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline">TARGET 3D TELEMETRY</span>
+<span class="font-label-sm text-label-sm text-error font-mono">DEFECT PIN: #HYD-B3</span>
+</div>
+<div class="relative w-full h-32 rounded bg-surface-container-lowest overflow-hidden flex items-center justify-center">
+<!-- Visual Inspection Preview / Heatmap simulation -->
+<div class="absolute inset-0 bg-gradient-to-tr from-error-container/20 via-transparent to-primary/10"></div>
+<svg class="w-full h-full p-space-sm" fill="none" viewbox="0 0 320 100" xmlns="http://www.w3.org/2000/svg">
+<path d="M 20 50 Q 80 50 120 20 T 200 80 T 300 45" stroke="#3e4850" stroke-linecap="round" stroke-width="8"></path>
+<path d="M 120 20 Q 160 50 200 80" stroke="#ffb4ab" stroke-dasharray="2 4" stroke-linecap="round" stroke-width="12"></path>
+<circle cx="160" cy="50" fill="#93000a" fill-opacity="0.4" r="14"></circle>
+<circle cx="160" cy="50" fill="#ffb4ab" r="5"></circle>
+<line stroke="#ffb4ab" stroke-dasharray="2 2" stroke-width="1.5" x1="160" x2="220" y1="50" y2="25"></line>
+<text fill="#ffb4ab" font-family="JetBrains Mono" font-size="9" x="225" y="24">Bend-3 Defect Point</text>
+</svg>
+<div class="absolute bottom-1.5 right-2 font-label-sm text-label-sm text-outline font-mono">FOV: 142.4° / Z+18.2mm</div>
+</div>
+</div>
+</aside>
+<!-- RIGHT PANEL: Rich Interactive Mail Composer & Inspection Review (Col 5-12) -->
+<main class="xl:col-span-8 flex flex-col gap-space-sm bg-surface-container-low p-space-lg rounded">
+<!-- Top Composer Control Bar -->
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-sm">
+<div class="w-7 h-7 rounded bg-primary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[18px]">edit_note</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">품질 부적합 보고 및 조치 통보서 작성</h2>
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-outline">
+<span class="text-secondary font-mono">AI ASSIST V4.2</span>
+<span>•</span>
+<span>MIL-STD-1522A 표준 규격 기반 자동 생성 문서</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-md py-1.5 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[16px]">refresh</span>
+<span>AI 재작성</span>
+</button>
+<button class="px-space-md py-1.5 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[16px]">translate</span>
+<span>EN/KR 번역</span>
+</button>
+<button class="px-space-md py-1.5 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[16px]">history</span>
+<span>버전 히스토리</span>
+</button>
+</div>
+</div>
+<!-- Recipients chosen from the system contact directory -->
+<div id="mail-metadata" class="flex flex-col gap-space-sm p-space-md rounded bg-surface-container">
+<label class="grid grid-cols-12 items-center gap-space-sm"><span class="col-span-2 font-label-sm text-label-sm text-outline">수신 (To)</span><input id="mail-to" type="text" class="col-span-10 w-full bg-surface-container-lowest text-on-surface px-3 py-2 rounded text-sm" placeholder="AI가 계통별 담당자에서 선택합니다"/></label>
+<label class="grid grid-cols-12 items-center gap-space-sm"><span class="col-span-2 font-label-sm text-label-sm text-outline">참조 (CC)</span><input id="mail-cc" type="text" class="col-span-10 w-full bg-surface-container-lowest text-on-surface px-3 py-2 rounded text-sm" placeholder="AI가 계통별 담당자에서 선택합니다"/></label>
+<label class="grid grid-cols-12 items-center gap-space-sm"><span class="col-span-2 font-label-sm text-label-sm text-outline">제목</span><input id="mail-subject" type="text" class="col-span-10 w-full bg-surface-container-lowest text-on-surface px-3 py-2 rounded text-sm" placeholder="검사 보고서를 바탕으로 작성합니다"/></label>
+<div class="flex gap-2 items-center"><button id="mail-ai-route" type="button" class="px-3 py-2 rounded bg-primary-container text-on-primary-container text-xs">AI 메일 다시 작성</button><span id="mail-routing-status" class="text-xs text-outline" aria-live="polite">검사 보고서를 확인하고 있습니다.</span></div>
+<p id="mail-routing-reason" class="text-xs leading-5 text-on-surface-variant whitespace-pre-wrap"></p>
+<details class="rounded bg-surface-container-low p-3"><summary class="cursor-pointer text-xs text-primary">계통별 담당자 등록 / 수정</summary><div id="mail-contact-fields" class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-3"></div><button id="mail-save-contacts" type="button" class="mt-3 rounded px-3 py-2 bg-primary-container text-on-primary-container text-xs">담당자 저장</button><p id="mail-contact-status" class="text-xs text-outline mt-2" aria-live="polite">실제 담당자의 이름과 이메일을 등록해 주세요.</p></details>
+</div>
+<div class="p-space-md rounded bg-surface-container-lowest flex flex-col gap-2"><label for="mail-report-body" class="text-sm text-on-surface">AI 메일 초안 · 수신 / 참조 / 제목 / 본문</label><textarea id="mail-report-body" rows="14" class="w-full bg-transparent text-on-surface-variant text-sm leading-6 resize-y" placeholder="선택한 검사 보고서가 표시됩니다."></textarea></div>
+<!-- Bottom Action Deck & Dispatch Approval Bar -->
+<div class="p-space-md rounded bg-surface-container flex flex-col md:flex-row flex-wrap items-center justify-between gap-space-md">
+<!-- Emergency Dispatch Options -->
+<div class="flex items-center gap-space-md w-full md:w-auto">
+<label class="flex items-center gap-space-xs cursor-pointer select-none">
+<input checked="" class="w-4 h-4 rounded bg-surface-container-lowest text-primary focus:ring-primary focus:ring-offset-0 cursor-pointer" type="checkbox"/>
+<span class="font-label-sm text-label-sm text-on-surface font-medium">
+              발송 즉시 SMS / 사내 긴급 메신저(Slack #qa-emergency) 비상 동시 전송
+            </span>
+</label>
+</div>
+<!-- Buttons Stack -->
+<div id="mail-action-buttons" class="flex flex-wrap items-center gap-space-xs w-full md:w-auto justify-end">
+<button class="px-space-md py-2 rounded bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-md text-label-md transition-colors">
+            미리보기
+          </button>
+<button class="px-space-md py-2 rounded bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-md text-label-md transition-colors">
+            내용 직접 수정
+          </button>
+<button id="mail-save-draft" type="button" class="px-space-md py-2 rounded bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-md text-label-md transition-colors">
+            임시 저장
+          </button>
+<button id="mail-delete" type="button" class="px-space-md py-2 rounded bg-error-container/30 hover:bg-error-container text-error font-label-md text-label-md transition-colors">메일 삭제</button>
+<button id="mail-undo-delete" type="button" hidden class="px-space-md py-2 rounded bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-md text-label-md transition-colors">삭제 취소</button>
+<!-- Large Prominent Approval & Dispatch CTA -->
+<button class="px-space-lg py-2.5 rounded bg-primary-container hover:bg-primary text-on-primary-container font-headline-md text-headline-md flex items-center gap-space-xs shadow-md transition-all active:scale-95" id="btnApproveSend" disabled title="메일 발송 연결은 아직 설정되지 않았습니다.">
+<span class="material-symbols-outlined text-[20px]">send_and_archive</span>
+<span>메일 발송 연결 준비 중</span>
+</button>
+</div>
+</div>
+</main>
+</div>
+<!-- Interactive Confirmation Dialog / Modal (Hidden by default, shown via JS) -->
+<div class="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm hidden flex items-center justify-center p-gutter" id="dispatchModal">
+<div class="w-full max-w-lg bg-surface-container-low p-space-xl rounded shadow-2xl flex flex-col gap-space-md relative">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded bg-error-container/40 flex items-center justify-center">
+<span class="material-symbols-outlined text-error text-[24px]">verified_user</span>
+</div>
+<div>
+<div class="font-label-sm text-label-sm text-error uppercase font-bold tracking-wider">CRITICAL QUALITY ALERT // AUTHORIZATION</div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface font-semibold">항공기 품질 불합격(NCR) 발송 승인</h3>
+</div>
+</div>
+<button class="text-outline hover:text-on-surface" onclick="closeDispatchModal()">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="space-y-space-xs font-body-md text-body-md text-on-surface-variant">
+<p>본 메일 발송 시 수신자 전원에게 실시간 비상 알림이 전달되며, 가공 파트의 작업 정지 권고 프로토콜이 가동됩니다.</p>
+<div class="p-space-sm rounded bg-surface-container font-label-sm text-label-sm space-y-1">
+<div class="flex justify-between">
+<span class="text-outline">승인자:</span>
+<span class="text-on-surface font-semibold">김민석 수석연구원 (QA Div.)</span>
+</div>
+<div class="flex justify-between">
+<span class="text-outline">수신자 총계:</span>
+<span class="text-on-surface">5개 부서 / 8명 수신인</span>
+</div>
+<div class="flex justify-between">
+<span class="text-outline">첨부 데이터 크기:</span>
+<span class="text-on-surface font-mono">24.2 MB (암호화 서명 첨부)</span>
+</div>
+</div>
+</div>
+<!-- Electronic Signature Confirmation Checkbox -->
+<label class="p-space-sm rounded bg-surface-container flex items-center gap-space-sm cursor-pointer select-none">
+<input checked="" class="w-4 h-4 rounded bg-surface-container-lowest text-primary focus:ring-primary" id="signCertCheck" type="checkbox"/>
+<span class="font-label-sm text-label-sm text-on-surface">
+          AS9102 Rev C 디지털 품질 엔지니어 전자 서명 확인 (본인 인증 완료)
+        </span>
+</label>
+<!-- Modal Actions -->
+<div class="flex items-center justify-end gap-space-sm pt-space-xs">
+<button class="px-space-md py-2 rounded bg-surface-container text-on-surface hover:bg-surface-bright font-label-md text-label-md" onclick="closeDispatchModal()">
+          취소 (Cancel)
+        </button>
+<button class="px-space-lg py-2 rounded bg-primary text-on-primary font-headline-md text-headline-md flex items-center gap-1 shadow-md" onclick="executeDispatch()">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span>최종 전송 승인 (Authorize)</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Toast Notification Simulator -->
+<div class="fixed bottom-space-lg right-space-lg z-50 bg-secondary-container text-on-secondary-container px-space-lg py-space-sm rounded shadow-xl flex items-center gap-space-sm transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none" id="toastSuccess">
+<span class="material-symbols-outlined text-[22px]">check_circle</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold">발송 승인 완료</span>
+<span class="font-label-sm text-label-sm">수신자 및 관련 파트에 긴급 알림 메일이 성공적으로 전송되었습니다.</span>
+</div>
+</div>
+<!-- Inline Micro-interactions Script -->
+<script>
+    function triggerDispatchModal() {
+      const modal = document.getElementById('dispatchModal');
+      if (modal) modal.classList.remove('hidden');
+    }
+
+    function closeDispatchModal() {
+      const modal = document.getElementById('dispatchModal');
+      if (modal) modal.classList.add('hidden');
+    }
+
+    function executeDispatch() { closeDispatchModal(); }
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest py-space-sm"><div class="w-full px-gutter-desktop flex items-center justify-between"><div class="flex items-center gap-space-lg font-label-sm text-label-sm text-on-surface-variant"><span>AEROPIPE PROTOCOL: MIL-STD-1522A / AS9102 Rev C</span><span>ENGINE: TENSORFLOW-DEFECT-V4.2</span><span>ENCRYPTION: AES-256 GCM</span></div><div class="font-label-sm text-label-sm text-outline">AeroPipe Inspector AI © 2025 Defense Quality Assurance Division. Confidential.</div></div></footer><script src="mail-composer.js?v=mail-delete-v1"></script></body></html>

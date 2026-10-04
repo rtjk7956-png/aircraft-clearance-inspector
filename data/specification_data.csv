@@ -1,0 +1,19 @@
+﻿Condition,Item_A_Type,Item_B_Type,Rule_Type,Rule_Value,Rule_Unit,Reference_Dimension,Source
+,Oxygen Plumbing,Fuel system,FIXED,6,in,,FAA AC 43.13-1B Chapter 6 Section 6 Paragraph 608
+,Oxygen Plumbing,Oil system,FIXED,6,in,,FAA AC 43.13-1B Chapter 6 Section 6 Paragraph 608
+,Oxygen Plumbing,Hydraulic system,FIXED,6,in,,FAA AC 43.13-1B Chapter 6 Section 6 Paragraph 608
+,Oxygen Plumbing,Flexible control cable,FIXED,2,in,,FAA AC 43.13-1B Chapter 6 Section 6 Paragraph 608
+,Oxygen Plumbing,Rigid control tube,FIXED,0.5,in,,FAA AC 43.13-1B Chapter 6 Section 6 Paragraph 608
+,Oxygen Plumbing,Flight/engine control cable,FIXED,6,in,,FAA AC 43.13-1B Chapter 6 Section 6 Paragraph 608
+,Oxygen Plumbing,Electrical line,FIXED,6,in,,FAA AC 43.13-1B Chapter 6 Section 6 Paragraph 608
+,Oxygen Plumbing,Electrical conduit,FIXED,2,in,,FAA AC 43.13-1B Chapter 6 Section 6 Paragraph 608
+구조물 관통부에서 wire를 clamp할 수 없어 protective grommet 등을 사용하는 경우,Wire / Wire bundle,Aircraft structure,FIXED,0.375,in,,FAA AC 43.13-1B Chapter 11 Section 11 Paragraph 115
+일반적인 굽힘,Wire bundle,Wire bundle 자체,MULTIPLIER,10,x,MAX_WIRE_OD,FAA AC 43.13-1B Chapter 11 Section 11 Paragraph 117
+Breakout 또는 bundle 내부에서 방향을 반전하는 경우 + 적절히 지지된 경우,Wire bundle,Wire bundle 자체,MULTIPLIER,6,x,WIRE_OD,FAA AC 43.13-1B Chapter 11 Section 11 Paragraph 117
+모든 굽힘,RF cable,RF cable 자체,MULTIPLIER,6,x,CABLE_OD,FAA AC 43.13-1B Chapter 11 Section 11 Paragraph 117(a)
+,유압계통,환경제어계통,FIXED,150,mm,,클리어런스 규격집.xlsx · Sheet1!F4 · 유압 - 환경제어 클리어런스 150mm 이상
+,유압계통,전기제어계통,FIXED,250,mm,,클리어런스 규격집.xlsx · Sheet1!F9 · 유압 - 전기 클리어런스 250mm 이상
+,유압계통,연료계통,FIXED,150,mm,,클리어런스 규격집.xlsx · Sheet1!F14 · 유압 - 연료 클리어런스 150mm 이상
+,연료계통,전기제어계통,FIXED,250,mm,,클리어런스 규격집.xlsx · Sheet1!F21 · 연료 - 전기 클리어런스 250mm 이상
+,연료계통,환경제어계통,FIXED,150,mm,,클리어런스 규격집.xlsx · Sheet1!F26 · 연료 - 환경제어 클리어런스 150mm 이상
+,환경제어계통,전기제어계통,FIXED,300,mm,,클리어런스 규격집.xlsx · Sheet1!F33 · 환경제어 - 전기 클리어런스 300mm 이상

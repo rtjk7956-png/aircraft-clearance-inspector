@@ -1,0 +1,7 @@
+Item_A,Item_A_Type,Item_B,Item_B_Type,Condition,Clearance_mm,Wire_OD_mm,Max_Wire_OD_mm,Cable_OD_mm
+OxygenPipe01,Oxygen Plumbing,FuelPipe01,Fuel system,,160,,,
+OxygenPipe02,Oxygen Plumbing,ElectricalLine01,Electrical line,,140,,,
+Wire01,Wire / Wire bundle,Structure01,Aircraft structure,구조물 관통부에서 wire를 clamp할 수 없어 protective grommet 등을 사용하는 경우,8,,,
+Bundle01,Wire bundle,Bundle01,Wire bundle 자체,일반적인 굽힘,42,,4,
+Bundle02,Wire bundle,Bundle02,Wire bundle 자체,Breakout 또는 bundle 내부에서 방향을 반전하는 경우 + 적절히 지지된 경우,15,3,,
+RFCable01,RF cable,RFCable01,RF cable 자체,모든 굽힘,28,,,5
