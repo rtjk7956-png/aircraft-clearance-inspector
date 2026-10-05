@@ -241,3 +241,28 @@ STEP 측정 또는 CATIA VBA CSV 결과 선택
 - FastAPI: https://fastapi.tiangolo.com/
 - Three.js: https://threejs.org/
 - LM Studio: https://lmstudio.ai/
+
+## 시연 및 테스트용 모델
+
+### STEP 측정용 모델
+
+- 파일: [AIRCRAFT_ROUTING_ASSEMBLY.stp](./AIRCRAFT_ROUTING_ASSEMBLY.stp)
+- 사용 방법: 웹 프로그램의 파일 관리 페이지 또는 STEP 측정기에서 불러옵니다.
+- 사용 목적: 부품 간 최소 이격거리 측정 및 규격 비교 테스트
+
+### CATIA VBA 테스트용 모델
+
+- 파일: [완성품.zip](./완성품.zip)
+- 사용 방법: ZIP을 압축 해제한 후 내부의
+  `AIRCRAFT_ROUTING_ASSEMBLY.CATProduct`를 CATIA V5에서 엽니다.
+- 연결된 부품 파일의 폴더 구조를 유지해야 합니다.
+- CATIA VBA 측정 매크로 실행에는 별도의 매크로 파일이 필요합니다.
+- VBA로 생성한 측정 CSV는 웹 프로그램의 규격 검사 및 AI 보고서 작성에 사용합니다.
+
+- #### 실행 방법
+
+1. `완성품.zip`을 압축 해제합니다.
+2. 폴더 구조를 유지한 상태로 `AIRCRAFT_ROUTING_ASSEMBLY.CATProduct`를 엽니다.
+3. CATIA의 매크로 관리에서 포함된 `.catvba` 파일을 등록합니다.
+4. 측정 매크로를 실행하고 검사할 부품 그룹 A와 B를 선택합니다.
+5. 생성된 CSV 측정값을 웹 프로그램의 규격 검사 및 AI 보고서 작성에 사용합니다.
